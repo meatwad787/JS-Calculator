@@ -1,16 +1,31 @@
-const add = (a, b, ...args) => {
-    return a + b;
+let num1 = +'';
+let num2 = +'';
+let operator = '+'
+
+function add (a, b) {
+    return +a + +b ;
 };
-const subtract = (a, b, ...args) => {
-    return a - b;
+function subtract(a, b) {
+    return a - b ;
 };
-const multiply = (a, b, ...args) => {
-    return a * b;
+function multiply(a, b) {
+    return a * b  ;
 };
-const divide = (a, b, ...args) => {
-    if (a !== 0 && b !== 0) {
-    return a / b;
-    } else {
-        return 'Error: Can\'t divide by Zero'
-    }
+function divide(a, b) {
+    return a,  b ;
 };
+
+function operate(a, operator, b) {
+        switch(operator) {
+            case '+':
+                return add(a, b);
+            case '-':
+                return subtract(a, b);
+            case '*':
+                return multiply(a, b);
+            case '/':
+                return divide(a, b);
+            default:
+                return "Invalid operator";
+        }
+}
