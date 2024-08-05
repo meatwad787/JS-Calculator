@@ -5,50 +5,59 @@ const AllClearButton = document.querySelector('[data-all-clear]');
 const EqualsButton = document.querySelector('[data-equals]');
 const Previous = document.querySelector('[data-previous]');
 const Current = document.querySelector('[data-current]');
-
+let firstNum;
+let secNum;
 // Addition function
-function add(Previous, Current) {
-    return Previous + Current;
+function add(firstNum, secNum) {
+    return firstNum + secNum;
 }
 
 // Subtraction function
-function subtract(Previous, Current) {
-    return Previous - Current;
+function subtract(firstNum, secNum) {
+    return firstNum - secNum;
 }
 
 // Multiplication function
-function multiply(Previous, Current) {
-    return Previous * Current;
+function multiply(firstNum, secNum) {
+    return firstNum * secNum;
 }
 
 // Division function
-function divide(Previous, Current) {
+function divide(firstNum, secNum) {
     if (b !== 0) {
-        return Previous / Current;
+        return firstNum / secNum;
     } else {
         return "Error: Division by zero";
     }
 }
 
 // Function to perform arithmetic operation based on operator
-function calculate(Previous, operator, Current) {
+function calculate(firstNum, operator, secNum) {
     switch(operator) {
         case '+':
-            return add(Previous, Current);
+            return add(firstNum, secNum);
         case '-':
-            return subtract(Previous, Current);
+            return subtract(firstNum, secNum);
         case '*':
-            return multiply(Previous, Current);
+            return multiply(firstNum, secNum);
         case '/':
-            return divide(Previous, Current);
+            return divide(firstNum, secNum);
         default:
             return "Invalid operator";
     }
 }
 
-NumberButton.forEach(function(button) {
-    button.addEventListener("click", function() {
+NumberButton.forEach(function(NumberButton) {
+    NumberButton.addEventListener("click", function() {
         // Append the button's value to the input field
-        Current.innerHTML += button.textContent;
+        firstNum = NumberButton.textContent;
+        Current.innerHTML += firstNum; 
     }
     )});
+
+    OperationButton.forEach(function(OperationButton) {
+        OperationButton.addEventListener('click', function() {
+        secNum = NumberButton.textContent;
+        Current.innerHTML += firstNum + secNum;
+        })
+    } );
